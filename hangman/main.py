@@ -8,6 +8,7 @@ hangman = Hangman()
 hangman.change_word()
 
 
+# function display all commands available
 def menu():
     print(f'Computer has selected {hangman.capacity()} length word\n')
     print('Type "-q" to quit the game.')
@@ -15,12 +16,14 @@ def menu():
     print('Type "-s" to start the game.')
 
 
+# function to start the game
 def start():
     print(art.welcome)
     print(art.logo)
     menu()
     quit_the_game = False
 
+    # check user wants to quit the game
     while not quit_the_game:
         user_input = input('>')
         if user_input == '-c':
@@ -36,11 +39,15 @@ def start():
             menu()
 
 
+# function to control the game
 def game():
     end_the_game = False
+
+    # check is game ene or not
     while not end_the_game:
         guess = input("Guess a letter: ").lower()
 
+        # when user guess already guessed
         if hangman.is_guess_in_display(guess):
             print(f'You\'ve already guessed {guess}')
         else:
